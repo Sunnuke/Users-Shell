@@ -1,0 +1,67 @@
+// Run the shell and import your User model
+
+from users_app.models import *
+exit()
+from users_app.models import *
+Users.objects.create(first_name="Javier",last_name="Rivera",email_address="javierrivera@email.com",age=22)
+exit()
+from users_app.models import Users
+
+
+// Query: Create 3 new users
+
+Users.objects.create(first_name="Javier",last_name="Rivera",email_address="javierrivera@email.com",age=22)
+Users.objects.create(first_name="leo",last_name="cool",email_address="leocool@email.com",age=22)
+Users.objects.create(first_name="Zach",last_name="Neon",email_address="zachneon@email.com",age=25)
+c = Users.objects.get(id=2)
+c.first_name = "Leo"
+c.save()
+c = Users.objects.get(id=2)
+c.last_name = "Cool"
+c.save()
+Users.objects.get(id=2).__dict__
+
+
+
+// Query: Retrieve all the users
+
+Users.objects.all()
+
+
+// Query: Retrieve the last user
+
+Users.objects.last()
+Users.objects.last().__dict__
+
+
+// Query: Retrieve the first user
+
+Users.objects.first()
+Users.objects.first().__dict__
+
+
+// Query: Change the user with id=3 so their last name is Pancakes.
+
+c = Users.objects.get(id=3)
+c.last_name = "Pancakes"
+c.save()
+
+
+// Query: Delete the user with id=2 from the database
+
+c = Users.objects.get(id=2)
+c.delete()
+
+
+// Query: Get all the users, sorted by their first name
+Users.objects.all().order_by("first_name")
+
+
+// Query: Get all the users, sorted by their first name in descending order
+Users.objects.all().order_by("-first_name")
+
+
+
+
+
+

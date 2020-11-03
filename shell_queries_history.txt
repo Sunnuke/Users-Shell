@@ -1,0 +1,83 @@
+$ python manage.py shell
+Python 3.9.0 (tags/v3.9.0:9cf6752, Oct  5 2020, 15:34:40) [MSC v.1927 64 bit (AM
+D64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from users_app.models import Users
+>>> Users.objects.create(first_name="Javier",last_name="Rivera",email_address="j
+
+  File "<console>", line 1
+    Users.objects.create(first_name="Javier",last_name="Rivera",email_address="j
+
+
+^
+SyntaxError: EOL while scanning string literal
+>>> Users.objects.create(first_name="Javier",last_name="Rivera",email_address="j
+avierrivera@email.com",age=22)
+<Users: Users object (1)>
+>>> Users.objects.create(first_name="Javier",last_name="Rivera",email_address="l
+eocool0xUsers.objects.create(first_name="Javier",last_name="Rivera",email_addres
+s="l
+  File "<console>", line 1
+    Users.objects.create(first_name="Javier",last_name="Rivera",email_address="l
+eocool0xUsers.objects.create(first_name="Javier",last_name="Rivera",email_addres
+s="l
+
+                                         ^
+SyntaxError: invalid syntax
+>>> eocool0xe=22)
+  File "<console>", line 1
+    eocool0xe=22)
+                ^
+SyntaxError: unmatched ')'
+>>> Users.objects.create(first_name="leo",last_name="cool",email_address="leocoo
+l@email.com",age=22)
+<Users: Users object (2)>
+>>> Users.objects.create(first_name="Zach",last_name="Neon",email_address="zachn
+eon@email.com",age=25)
+<Users: Users object (3)>
+>>> c = Users.objects.get(id=2)
+>>> c.first_name = "Leo"
+>>> c.save()
+>>> c = Users.objects.get(id=2)
+
+KeyboardInterrupt
+>>> c = Users.objects.get(id=2)
+>>> c.last_name = "Cool"
+>>> c.save()
+>>> Users.objects.get(id=2).__dict__
+{'_state': <django.db.models.base.ModelState object at 0x000002B2C28CA2B0>, 'id': 2, 'first_na
+me': 'Leo', 'last_name': 'Cool', 'email_address': 'leocool@email.com', 'age': 22, 'created_at'
+: datetime.datetime(2020, 11, 3, 18, 43, 20, 231360, tzinfo=<UTC>), 'updated_at': datetime.dat
+etime(2020, 11, 3, 18, 52, 52, 315017, tzinfo=<UTC>)}
+>>> Users.objects.all()
+<QuerySet [<Users: Users object (1)>, <Users: Users object (2)>, <Users: Users object (3)>]>
+>>> Users.objects.last()
+<Users: Users object (3)>
+>>> Users.objects.last().__dict__
+{'_state': <django.db.models.base.ModelState object at 0x000002B2C28CA220>, 'id': 3, 'first_na
+me': 'Zach', 'last_name': 'Neon', 'email_address': 'zachneon@email.com', 'age': 25, 'created_a
+t': datetime.datetime(2020, 11, 3, 18, 45, 10, 394671, tzinfo=<UTC>), 'updated_at': datetime.d
+atetime(2020, 11, 3, 18, 45, 10, 394671, tzinfo=<UTC>)}
+>>> Users.objects.first()
+<Users: Users object (1)>
+>>> Users.objects.last().__dict__
+{'_state': <django.db.models.base.ModelState object at 0x000002B2C28CA100>, 'id': 3, 'first_na
+me': 'Zach', 'last_name': 'Neon', 'email_address': 'zachneon@email.com', 'age': 25, 'created_a
+t': datetime.datetime(2020, 11, 3, 18, 45, 10, 394671, tzinfo=<UTC>), 'updated_at': datetime.d
+atetime(2020, 11, 3, 18, 45, 10, 394671, tzinfo=<UTC>)}
+>>> c = ClassName.objects.get(id=3)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'ClassName' is not defined
+>>> c = Users.objects.get(id=3)
+>>> c.last_name = "Pancakes"
+>>> c.save()
+>>> c = Users.objects.get(id=2)
+>>> c.delete()
+(1, {'users_app.Users': 1})
+>>> Users.objects.all().order_by("first_name")
+<QuerySet [<Users: Users object (1)>, <Users: Users object (3)>]>
+>>> Users.objects.all().order_by("-first_name")
+<QuerySet [<Users: Users object (3)>, <Users: Users object (1)>]>
+>>>
