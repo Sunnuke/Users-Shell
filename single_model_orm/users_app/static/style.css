@@ -1,0 +1,81 @@
+/* Body Box */
+.bodyBox{
+    flex-wrap: wrap;
+    position: fixed;
+    top: 1%;
+    left: 25%;
+    width: 50%;
+}
+
+
+
+/* Top Half */
+.topHalf{
+
+}
+table{
+    border: 1px solid black;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+h1{
+    text-align: center;
+}
+
+/* Bottom Box */
+.bottomBox{
+
+}
+.formContext{
+    display: flex;
+}
+.buttonBox{
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Form Box Left */
+.formBoxLeft{
+    display: inline-block;
+    display: flex;
+    margin-right: 30%;
+}
+.firstNameBox{
+    /* margin-right: 30%; */
+    display: inline-block;
+    display: flex;
+    margin-left: 170px;
+}
+.emailBox{
+    display: flex;
+    display: inline-block;
+    margin-left: 70px;
+}
+
+/* Form Box Right */
+.formBoxRight{
+    display: inline-block;
+    display: flex;
+}
+.lastNameBox{
+    display: flex;
+    margin-left: 170px;
+}
+.ageBox{
+    display: flex;
+    margin-left: 70px;
+}
+input{
+    height: 20px;
+    width: 130px;
+    margin: 20% 0%;
+    border: 1px solid black;
+}
+p{
+    display: flex;
+    margin-right: 50px;
+}
